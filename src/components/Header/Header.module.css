@@ -1,0 +1,10 @@
+.header {
+    grid-area: h;
+    background-color: rgb(247, 250, 98);
+}
+  
+.header img {
+    height: 50px;
+    margin-left: 30px;
+    padding: 3px 0px;
+}
