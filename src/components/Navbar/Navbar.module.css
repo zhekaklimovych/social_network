@@ -8,6 +8,10 @@
     padding-left: 20px;
 }
 
+.item:last-child {
+    padding-top: 30px;
+}
+
 .nav a {
     text-decoration: none;
     font-size: 26px;
@@ -17,7 +21,7 @@
 .nav a:hover {
     color: rgb(255, 8, 8);
 }
-.nav a:active {
+.nav .active {
     color: rgb(73, 255, 1);
 }
 

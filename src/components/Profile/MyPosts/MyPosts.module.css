@@ -1,0 +1,33 @@
+.posts_wrapper {
+    display: grid;
+    padding-left: 30px;
+    row-gap: 10px;
+}
+
+.title {
+    color: white;
+    font-size: 28px;
+}
+textarea {
+    display: block;
+    width: 700px;
+    height: 70px;
+    padding: 10px;
+    border:3px dashed indigo;
+background-color:aliceblue;
+}
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.send {
+    margin-top: 10px;
+    margin-left: 640px;
+    padding: 7px 25px;
+}
