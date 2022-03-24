@@ -1,16 +1,17 @@
 .app-wrapper {
+    box-sizing: border-box;
     margin: 0 auto;
     display: grid;
-    width: 1200px;
-    height: 100vh;
+    grid-template-columns: 2fr 8fr 2fr;
     grid-template-areas: 
-    "h h"
-    "n c";
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-row-gap: 25px;
-    grid-column-gap: 20px;
+    "h h h"
+    "n c r";
+    grid-template-rows: 1fr 8fr;
+
+    height: 100vh; 
     font-family: 'Courier New', Courier, monospace;
+    color: #777d74;
+    background-color: #182039;
 }
 
 .app-wrapper-content {
