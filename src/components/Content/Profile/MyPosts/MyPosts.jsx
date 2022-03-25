@@ -6,7 +6,7 @@ const MyPosts = () => {
       <div className={s.posts_wrapper}>
         <h2 className={s.title}>My posts</h2>
         <div>
-          <textarea name="" id="" placeholder='Enter message...'></textarea>
+          <textarea placeholder='Enter message...'></textarea>
           <button className={s.send}>Send</button>
         </div>
         <div className={s.posts}>

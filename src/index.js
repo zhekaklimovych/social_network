@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
+
+let dialogs = [
+  { name: 'Alex', id: 1 },
+  { name: 'Dave', id: 2 },
+  { name: 'Nick', id: 3 },
+  { name: 'John', id: 4 }
+];
+
+let messages = [
+  { message: 'hello' },
+  { message: 'how are u?' },
+  { message: 'Yo'},
+  { message: 'HeHe' }
+];
+
+let posts = [
+  { message: 'Hello, my first post!'},
+  { message: 'And my too!'}
+];
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <App />
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,3 +1,8 @@
 .sidebar {
     background-color: #1e2745;
 }
+
+.sidebar li {
+    padding: 10px;
+    list-style-type: none;
+}

@@ -1,15 +1,10 @@
-import s from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = () => {
+const Profile = (props) => {
     return(
-        <div className={s.content}>
-          <div>
-            <img src='https://fischermechanical.com/wp-content/uploads/shutterstock_349400798-1000x300.jpg' alt='image'/>
-        </div>
-        <div>
-          ava+description
-        </div>
+      <div>
+        <ProfileInfo />
         <MyPosts />
       </div>
     )
