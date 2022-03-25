@@ -2,11 +2,12 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
+    
     return(
-      <div>
-        <ProfileInfo />
-        <MyPosts />
-      </div>
+        <div>
+            <ProfileInfo />
+            <MyPosts />
+        </div>
     )
 }
 

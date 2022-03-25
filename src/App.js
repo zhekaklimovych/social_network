@@ -18,6 +18,7 @@ const App = () => {
 			<Header />
 			<Navbar />
 			<Sidebar />
+			
 			<div className='app-wrapper-content'>
 				<Routes>
 					<Route path = '/*' element={<Home />}></Route>

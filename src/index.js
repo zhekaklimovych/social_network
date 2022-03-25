@@ -1,35 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router} from 'react-router-dom';
+
 
 let dialogs = [
-  { name: 'Alex', id: 1 },
-  { name: 'Dave', id: 2 },
-  { name: 'Nick', id: 3 },
-  { name: 'John', id: 4 }
+	{ name: 'Alex', id: 1 },
+  	{ name: 'Dave', id: 2 },
+  	{ name: 'Nick', id: 3 },
+  	{ name: 'John', id: 4 }
 ];
 
 let messages = [
-  { message: 'hello' },
-  { message: 'how are u?' },
-  { message: 'Yo'},
-  { message: 'HeHe' }
+  	{ message: 'hello' },
+  	{ message: 'how are u?' },
+  	{ message: 'Yo'},
+  	{ message: 'HeHe' }
 ];
 
 let posts = [
-  { message: 'Hello, my first post!'},
-  { message: 'And my too!'}
+  	{ message: 'Hello, my first post!'},
+  	{ message: 'And my too!'}
 ];
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
+  	<React.StrictMode>
+    	<Router>
+      		<App />
+    	</Router>
+  	</React.StrictMode>,
   document.getElementById('root')
 );
 
