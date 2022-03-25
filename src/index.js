@@ -29,7 +29,7 @@ let posts = [
 ReactDOM.render(
   	<React.StrictMode>
     	<Router>
-      		<App />
+      		<App dialogs={dialogs} messages={messages} posts={posts} />
     	</Router>
   	</React.StrictMode>,
   document.getElementById('root')
