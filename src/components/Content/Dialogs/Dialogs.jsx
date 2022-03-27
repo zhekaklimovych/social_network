@@ -4,13 +4,10 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let dialogs = props.dialogs;
-    let messages = props.messages;
-
-    let dialogsElements = dialogs.map( (d, index) => {
+    let dialogsElements = props.state.dialogs.map( (d, index) => {
         return <Dialog key={index} name={d.name} id={d.id} />;
     });
-    let messagesElements = messages.map( (m, index) => { 
+    let messagesElements = props.state.messages.map( (m, index) => { 
         return <Message key={index} message={m.message} />
     });
 

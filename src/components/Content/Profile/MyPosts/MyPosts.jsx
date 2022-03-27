@@ -3,8 +3,7 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
     
-    let posts = props.posts;
-    let postsElements = posts.map( ( p,index ) => <Post key={index} message={p.message}/>);
+    let postsElements = props.state.posts.map( ( p,index ) => <Post key={index} message={p.message}/>);
 
     return(
         <div className={s.posts_wrapper}>
