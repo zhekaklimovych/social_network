@@ -1,18 +1,23 @@
 import s from './Sidebar.module.css';
+import SidebarItem from './SideBarItem/SidebarItem';
 
-const Sidebar = ()=> {
+const Sidebar = (props)=> {
+    // debugger
+    let usersElements = props.state.users.map( (u, index) => {
+
+        return (
+            <SidebarItem 
+                key={index}
+                userName={u.userName}
+                status={u.status}
+                url={u.url}
+            />
+        )
+    });
+
     return(
-        <div className={s.sidebar}>
-            <ul>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-                <li>John</li>
-            </ul>
+        <div className={s.sidebarWrapper}>
+            {usersElements}
         </div>
     )
 }

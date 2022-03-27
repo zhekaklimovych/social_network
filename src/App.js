@@ -17,7 +17,7 @@ const App = (props) => {
 		<div className='app-wrapper'>
 			<Header />
 			<Navbar />
-			<Sidebar />
+			<Sidebar state={props.state.sidebar} />
 			
 			<div className='app-wrapper-content'>
 				<Routes>
