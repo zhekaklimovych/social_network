@@ -20,14 +20,16 @@ const App = (props) => {
 			<Sidebar state={props.state.sidebar} />
 			
 			<div className='app-wrapper-content'>
-				<Routes>
-					<Route path = '/*' element={<Home />}></Route>
-					<Route path ='/profile' element={<Profile state={props.state.profilePage}/>}></Route>
-					<Route path ='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} />}></Route>
-					<Route path ='/news' element={<News/>}></Route>
-					<Route path ='/music' element={<Music/>}></Route>
-					<Route path ='/settings' element={<Settings/>}></Route>
-				</Routes>
+				<div className='app-content-main'>
+					<Routes>
+						<Route path = '/*' element={<Home />}></Route>
+						<Route path ='/profile' element={<Profile state={props.state.profilePage} addPostToState={props.addPostToState} />}></Route>
+						<Route path ='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} />}></Route>
+						<Route path ='/news' element={<News/>}></Route>
+						<Route path ='/music' element={<Music/>}></Route>
+						<Route path ='/settings' element={<Settings/>}></Route>
+					</Routes>
+				</div>
 			</div>
 		</div>
 	);
