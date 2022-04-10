@@ -21,13 +21,15 @@ let state = {
             { message: 'how are u?' },
             { message: 'Yo'},
             { message: 'HeHe' }
-        ]
+        ],
+        newMessageText: ''
     },
     profilePage: {
         posts: [
             { message: 'Hello, my first post!'},
             { message: 'And my too!'}
-        ]
+        ],
+        newPostText: ''
     },
     sidebar: {
         users: [
@@ -38,14 +40,40 @@ let state = {
         ]
     }
 }
-
-export const addPostToState = (postMessage)=> {
+window.state = state;
+export const addPostToState = ()=> {
 
     let newPost = {
-        message: postMessage
+        message: state.profilePage.newPostText
     }
-    
-    state.profilePage.posts.push(newPost);
+    if(newPost.message !== '') {
+        state.profilePage.posts.push(newPost);
+        state.profilePage.newPostText = '';
+        rerenderEntireTree(state);
+    };
+}
+
+export const updateNewTextPost = (newText)=> {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export const addMessageToState = ()=> {
+
+    let newMessage = {
+        message: state.dialogsPage.newMessageText
+    }
+    if(newMessage.message !== '') {
+        state.dialogsPage.messages.push(newMessage);
+        console.log('fdsf')
+        state.dialogsPage.newMessageText = '';
+        console.log('123')
+        rerenderEntireTree(state);
+    };
+}
+
+export const updateNewMessageText = (newText)=> {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
 
