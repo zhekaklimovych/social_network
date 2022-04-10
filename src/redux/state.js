@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = ()=> {}
 
 let state = {
     dialogsPage: {
@@ -65,9 +65,7 @@ export const addMessageToState = ()=> {
     }
     if(newMessage.message !== '') {
         state.dialogsPage.messages.push(newMessage);
-        console.log('fdsf')
         state.dialogsPage.newMessageText = '';
-        console.log('123')
         rerenderEntireTree(state);
     };
 }
@@ -76,5 +74,9 @@ export const updateNewMessageText = (newText)=> {
     state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
+
+export const subscribe = (observer=> {
+    rerenderEntireTree = observer;
+})
 
 export default state;
