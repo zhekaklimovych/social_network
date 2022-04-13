@@ -48,43 +48,44 @@ let store = {
         return this._state;
     },
 
-    addPostToState () {
-
-        let newPost = {
-            message: this._state.profilePage.newPostText
-        }
-
-        if(newPost.message !== '') {
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this.getState());
-        };
-    },
-
-    updateNewTextPost(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this.getState());
-    },
-
-    addMessageToState() {
-
-        let newMessage = {
-            message: this._state.dialogsPage.newMessageText
-        }
-        if(newMessage.message !== '') {
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this.getState());
-        };
-    },
-    
-    updateNewMessageText(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this.getState());
-    },
-    
     subscribe(observer){
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+
+        if(action.type === 'ADD_POST') {
+
+            let newPost = {
+                message: this._state.profilePage.newPostText
+            }
+            if(newPost.message !== '') {
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this.getState());
+            };
+
+        } else if(action.type === 'UPDATE_NEW_TEXT_POST') {
+
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this.getState());
+
+        } else if(action.type === 'ADD_MESSAGE') {
+
+            let newMessage = {
+                message: this._state.dialogsPage.newMessageText
+            }
+            if(newMessage.message !== '') {
+                this._state.dialogsPage.messages.push(newMessage);
+                this._state.dialogsPage.newMessageText = '';
+                this._callSubscriber(this.getState());
+            };
+
+        } else if(action.type === 'UPDATE_NEW_TEXT_MESSAGE') {
+
+            this._state.dialogsPage.newMessageText = action.newText;
+            this._callSubscriber(this.getState());
+        }
     }
 }
 
