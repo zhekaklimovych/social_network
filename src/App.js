@@ -5,7 +5,7 @@ import News from './components/Content/News/News';
 import Music from './components/Content/Music/Music';
 import Settings from './components/Content/Settings/Settings';
 import Sidebar from './components/Sidebar/Sidebar';
-import Dialogs from './components/Content/Dialogs/Dialogs';
+import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
 import Home from './components/Content/Home/Home';
 
 import './App.css';
@@ -28,12 +28,8 @@ const App = (props) => {
 							element={<Profile store={props.store}/>}>
 						</Route>
 						<Route 
-							path ='/dialogs/*' 
-							element={
-								<Dialogs 
-									dialogsPage={props.state.dialogsPage}
-									dispatch={props.dispatch}
-								/>}>
+							path ='/dialogs/*'
+							element={<DialogsContainer store={props.store}/>}>
 						</Route>
 						<Route path ='/news' element={<News/>}></Route>
 						<Route path ='/music' element={<Music/>}></Route>
