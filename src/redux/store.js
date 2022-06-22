@@ -32,7 +32,7 @@ let store = {
                 { message: 'Hello, my first post!'},
                 { message: 'And my too!'}
             ],
-            newPostText: ''
+            newPostMessage: ''
         },
         sidebar: {
             users: [
