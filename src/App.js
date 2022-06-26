@@ -12,25 +12,19 @@ import './App.css';
 
 import { Route, Routes } from 'react-router-dom';
 
-const App = (props) => {
+const App = () => {
 	return (
 		<div className='app-wrapper'>
 			<Header />
 			<Navbar />
-			<Sidebar state={props.state.sidebar} />
+			{/* <Sidebar state={props.state.sidebar} /> */}
 			
 			<div className='app-wrapper-content'>
 				<div className='app-content-main'>
 					<Routes>
 						<Route path = '/*' element={<Home />}></Route>
-						<Route 
-							path ='/profile' 
-							element={<Profile store={props.store}/>}>
-						</Route>
-						<Route 
-							path ='/dialogs/*'
-							element={<DialogsContainer store={props.store}/>}>
-						</Route>
+						<Route path ='/profile' element={<Profile />}></Route>
+						<Route path ='/dialogs/*' element={<DialogsContainer />}></Route>
 						<Route path ='/news' element={<News/>}></Route>
 						<Route path ='/music' element={<Music/>}></Route>
 						<Route path ='/settings' element={<Settings/>}></Route>
