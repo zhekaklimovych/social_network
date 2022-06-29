@@ -1,71 +1,44 @@
 import s from './Users.module.css';
 import * as axios from 'axios';
 import React from 'react';
+import userPhoto from '../../assets/img/avatar.png';
 class Users extends React.Component {
 
-    componentDidMount() {
-        /* axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => {
-                console.log(response);
-                this.props.setUsers(response.data);
-        }) */
-        this.props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-                followed: false,
-                fullName: 'Dmitry',
-                status: 'I am a boss',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: 2,
-                photoUrl: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-                followed: true,
-                fullName: 'Sasha',
-                status: 'I am a boss too',
-                location: {city: 'Moscow', country: 'Russia'}
-            },
-            {
-                id: 3,
-                photoUrl: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-                followed: false,
-                fullName: 'Andrew',
-                status: 'I am a boss too',
-                location: {city: 'Kiev', country: 'Ukraine'}
-            }
-        ])
-    }
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/users?_limit=3')
+      .then(response => {
+        this.props.setUsers(response.data);
+    })
+  }
 
-    render() {
-        return <div>
-            {
-                this.props.users.map(u => <div key={u.id}>
-                    <span>
-                        <div>
-                            <img src={u.photoUrl} className={s.userPhoto}/>
-                        </div>
-                        <div>
-                            {u.followed
-                                ? <button onClick={() => { this.props.unfollow(u.id) }}>Unfollow</button>
-                                : <button onClick={() => { this.props.follow(u.id) }}>Follow</button>}
-                        </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>{"u.fullName"}</div>
-                            <div>{"u.status"}</div>
-                        </span>
-                        <span>
-                            <div>{"u.location.country"}</div>
-                            <div>{"u.location.city"}</div>
-                        </span>
-                    </span>
-                </div>)
-            }
-        </div>
-        
-    }
+  render() {
+    return <div>
+      {
+        this.props.users.map(u => <div key={u.id}>
+          <span>
+            <div>
+              <img src={userPhoto} className={s.userPhoto}/>
+            </div>
+            <div>
+              {u.followed
+                ? <button onClick={() => { this.props.unfollow(u.id) }}>Unfollow</button>
+                : <button onClick={() => { this.props.follow(u.id) }}>Follow</button>}
+            </div>
+        </span>
+        <span>
+          <span>
+            <div>{u.name}</div>
+            <div>{"u.status"}</div>
+          </span>
+          <span>
+            <div>{"u.location.country"}</div>
+            <div>{"u.location.city"}</div>
+          </span>
+        </span>
+        </div>)
+      }
+    </div>
+  }
 }
 
 export default Users;

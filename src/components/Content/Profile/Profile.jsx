@@ -3,12 +3,12 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
 
-    return(
-        <div>
-            <ProfileInfo />
-            <MyPostsContainer />
-        </div>
-    )
+  return(
+    <div>
+      <ProfileInfo />
+      <MyPostsContainer />
+    </div>
+  )
 }
 
 export default Profile;
