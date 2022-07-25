@@ -20,7 +20,7 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         newPostMessage: '',
-          posts: [...state.posts, newPost],
+        posts: [...state.posts, newPost],
       }
       case action_type.UPDATE_NEW_POST_TEXT:
         return {

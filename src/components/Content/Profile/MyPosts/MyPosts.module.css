@@ -10,11 +10,11 @@
 }
 textarea {
     display: block;
-    width: 400px;
+    width: 200px;
     height: 70px;
     padding: 10px;
     border:3px dashed indigo;
-background-color:aliceblue;
+    background-color:aliceblue;
 }
 button {
     background-color: #4CAF50;

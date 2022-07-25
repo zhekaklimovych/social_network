@@ -5,14 +5,24 @@ import userPhoto from '../../assets/img/avatar.png';
 class Users extends React.Component {
 
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users?_limit=3')
+    axios.get(`http://localhost:5000/api/users`)
       .then(response => {
         this.props.setUsers(response.data);
     })
   }
 
   render() {
+
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+    let pages = [];
+    for(let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
     return <div>
+      
+      <div>
+        {pages.map((p, id) => <span key={id} className={this.props.currentPage === p ? s.selectedPage: null}>{p}</span>)}
+      </div>
       {
         this.props.users.map(u => <div key={u.id}>
           <span>
@@ -28,11 +38,10 @@ class Users extends React.Component {
         <span>
           <span>
             <div>{u.name}</div>
-            <div>{"u.status"}</div>
+            <div>{u.email}</div>
           </span>
           <span>
-            <div>{"u.location.country"}</div>
-            <div>{"u.location.city"}</div>
+            <div>{u.phone}</div>
           </span>
         </span>
         </div>)
