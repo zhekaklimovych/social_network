@@ -2,9 +2,9 @@ import {action_type} from '../action_type';
 
 const initialState = {
     users: [],
-    totalUsersCount: 21,
-    pageSize: 5,
-    currentPage: 3
+    totalUsersCount: 0,
+    pageSize: 3,
+    currentPage: 1
 }
 
 const usersReducer = (state = initialState, action) => {

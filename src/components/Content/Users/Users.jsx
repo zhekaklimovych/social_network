@@ -5,19 +5,19 @@ import userPhoto from '../../assets/img/avatar.png';
 
 class Users extends React.Component {
 
-    // componentDidMount() {
-    //     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-    //         .then(response => {
-    //             // this.props.setUsers(response.data.items);
-    //             // this.props.setTotalUsersCount(response.data.totalCount);
-    //         });
-    // }
-    //
+    componentDidMount() {
+        axios.get(`http://localhost:3000/api/users/?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.users);
+                this.props.setTotalUsersCount(response.data.totalCount);
+            });
+    }
+    
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+        axios.get(`http://localhost:3000/api/users/?page=${pageNumber}&limit=${this.props.pageSize}`)
             .then(response => {
-                this.props.setUsers(response.data.items);
+                this.props.setUsers(response.data.users);
             });
     }
 
@@ -31,12 +31,23 @@ class Users extends React.Component {
         return <div>
 
             <div>
-                {pages.map((p, id) => {
+                {/* {pages.map((p, id) => {
                     return(
                         <span key={id} className={this.props.currentPage === p ? s.selectedPage : null}>{p}
-                            {/*onclick(() => { this.onPageChanged(p)})*/}
+                            onClick={(e) => { this.onPageChanged(p); }}{p}
                         </span>
+
                     )
+                })} */}
+                { pages.map( (p,id) => {
+                    return(
+                        <span 
+                            key={id} 
+                            className={this.props.currentPage === p ? s.selectedPage : null}
+                            onClick={() => { this.onPageChanged(p); }}
+                            >
+                                {p}
+                        </span>) 
                 })}
             </div>
             {
@@ -44,6 +55,9 @@ class Users extends React.Component {
                     <span>
                         <div>
                             <img src={userPhoto} className={s.userPhoto}/>
+                            <p>{u.name}</p>
+                            <p>{u.email}</p>
+
                         </div>
                         <div>
                             {u.followed ?
