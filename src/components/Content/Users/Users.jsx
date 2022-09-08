@@ -6,7 +6,7 @@ import userPhoto from '../../assets/img/avatar.png';
 class Users extends React.Component {
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/api/users/?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
+        axios.get(`http://localhost:3001/api/users/?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.users);
                 this.props.setTotalUsersCount(response.data.totalCount);
@@ -15,7 +15,7 @@ class Users extends React.Component {
     
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        axios.get(`http://localhost:3000/api/users/?page=${pageNumber}&limit=${this.props.pageSize}`)
+        axios.get(`http://localhost:3001/api/users/?page=${pageNumber}&limit=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.users);
             });
@@ -31,14 +31,6 @@ class Users extends React.Component {
         return <div>
 
             <div>
-                {/* {pages.map((p, id) => {
-                    return(
-                        <span key={id} className={this.props.currentPage === p ? s.selectedPage : null}>{p}
-                            onClick={(e) => { this.onPageChanged(p); }}{p}
-                        </span>
-
-                    )
-                })} */}
                 { pages.map( (p,id) => {
                     return(
                         <span 
@@ -51,18 +43,17 @@ class Users extends React.Component {
                 })}
             </div>
             {
-                this.props.users.map(u => <div key={u.id}>
+                this.props.users.map(u => <div key={u._id}>
                     <span>
                         <div>
                             <img src={userPhoto} className={s.userPhoto}/>
                             <p>{u.name}</p>
                             <p>{u.email}</p>
-
                         </div>
                         <div>
-                            {u.followed ?
-                                <button onClick={() => { this.props.unfollow(u.id) }}>Unfollow</button>
-                                : <button onClick={() => { this.props.follow(u.id) }}>Follow</button>}
+                            {u.followed
+                                ? <button onClick={() => { this.props.unfollow(u._id) }}>Unfollow</button>
+                                : <button onClick={() => { this.props.follow(u._id) }}>Follow</button>}
                         </div>
                     </span>
                 </div>)
