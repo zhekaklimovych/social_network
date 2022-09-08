@@ -5,46 +5,46 @@ import React from 'react';
 
 const Dialogs = (props) => {
 
-  let state = props.dialogsPage;
-  
-  let dialogsElements = state.dialogs.map( (d, index) => {
-    return <Dialog key={index} name={d.name} id={d.id} />;
-  });
+    let state = props.dialogsPage;
 
-  let messagesElements = state.messages.map( (m, index) => { 
-    return <Message key={index} message={m.message} />
-  });
+    let dialogsElements = state.dialogs.map((d, index) => {
+        return <Dialog key={index} name={d.name} id={d.id}/>;
+    });
 
-  let newMessageElement = React.createRef();
+    let messagesElements = state.messages.map((m, index) => {
+        return <Message key={index} message={m.message}/>
+    });
 
-  const onSendMessageClick = ()=> {
-    props.sendMessage();
-  }
+    let newMessageElement = React.createRef();
 
-  const onNewMessageChange = () => {
-    let body = newMessageElement.current.value;
-    props.updateNewMessageText(body);
-  }
+    const onSendMessageClick = () => {
+        props.sendMessage();
+    }
 
-  return(
-    <div className={s.dialogs}>
-      <div>
-        {dialogsElements}
-      </div>
-      <div className={s.messages}>
-        {messagesElements}
-      </div>
-      <div className={s.addMessageContainer}>
-        <textarea 
-          ref={newMessageElement} 
-          onChange={onNewMessageChange}
-          placeholder='Enter message...' 
-          value={state.newMessageText} 
+    const onNewMessageChange = () => {
+        let body = newMessageElement.current.value;
+        props.updateNewMessageText(body);
+    }
+
+    return (
+        <div className={s.dialogs}>
+            <div>
+                {dialogsElements}
+            </div>
+            <div className={s.messages}>
+                {messagesElements}
+            </div>
+            <div className={s.addMessageContainer}>
+        <textarea
+            ref={newMessageElement}
+            onChange={onNewMessageChange}
+            placeholder='Enter message...'
+            value={state.newMessageText}
         />
-        <button onClick={onSendMessageClick}>Send</button>
-      </div>
-    </div>
-  )
+                <button onClick={onSendMessageClick}>Send</button>
+            </div>
+        </div>
+    )
 }
 
 export default Dialogs;
