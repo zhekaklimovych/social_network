@@ -6,7 +6,8 @@ const initialState = {
         message: 'Hello, my first post!'
         }
     ],
-    newPostMessage: ''
+    newPostMessage: '',
+    profile: null
 }
 
 
@@ -26,6 +27,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newPostMessage: action.newMessage
+            }
+        case action_type.SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
             }
         default:
             return state;

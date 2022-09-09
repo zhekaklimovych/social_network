@@ -1,6 +1,5 @@
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Content/Profile/Profile';
 import News from './components/Content/News/News';
 import Music from './components/Content/Music/Music';
 import Settings from './components/Content/Settings/Settings';
@@ -8,6 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
 import Home from './components/Content/Home/Home';
 import UsersContainer from './components/Content/Users/UsersContainer';
+import ProfileContainer from "./components/Content/Profile/ProfileContainer";
 
 import './App.css';
 
@@ -24,7 +24,7 @@ const App = () => {
 				<div className='app-content-main'>
 					<Routes>
 						<Route path = '/*' element={<Home />}></Route>
-						<Route path ='/profile' element={<Profile />}></Route>
+						<Route path='/profile' element={<ProfileContainer />} />
 						<Route path ='/dialogs/*' element={<DialogsContainer />}></Route>
 						<Route path ='/users' element={<UsersContainer />}></Route>
 						<Route path ='/news' element={<News/>}></Route>
