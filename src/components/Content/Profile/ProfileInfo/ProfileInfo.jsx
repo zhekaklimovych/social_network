@@ -13,6 +13,8 @@ const ProfileInfo = (props) => {
                 officia dolores
                 aliquam culpa.
             </div>
+            {/*<p>{props.profile.aboutMe}</p>*/}
+            {/*<p>{props.profile.fullName}</p>*/}
         </div>
     )
 }

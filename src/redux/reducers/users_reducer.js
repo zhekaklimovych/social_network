@@ -3,7 +3,7 @@ import {action_type} from '../action_type';
 const initialState = {
     users: [ ],
     totalUsersCount: 0,
-    pageSize: 3,
+    pageSize: 8,
     currentPage: 1,
     isFetching: false
 }
@@ -14,7 +14,7 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if (u.userId === action.userId) {
+                    if (u.id === action.userId) {
                         return {...u, followed: true}
                     }
                     return u;
@@ -24,14 +24,14 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if (u.userId === action.userId) {
+                    if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
                     return u;
                 })
             }
         case action_type.SET_USERS: {
-            return {...state, users: [...action.users]}
+            return {...state, users: action.users}
         }
         case action_type.SET_CURRENT_PAGE: {
             return { ...state, currentPage: action.currentPage }
