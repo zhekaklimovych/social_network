@@ -17,4 +17,6 @@ export const action_type = {
     SET_TOTAL_USERS_COUNT: 'SET_TOTAL_USERS_COUNT',
     TOGGLE_IS_FETCHING: 'TOGGLE_IS_FETCHING',
 
+    //auth
+    SET_AUTH_USER_DATA: 'SET_AUTH_USER_DATA'
 }
