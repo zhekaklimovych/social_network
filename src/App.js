@@ -1,3 +1,5 @@
+import { Route, Routes } from 'react-router-dom';
+
 import Navbar from './components/Navbar/Navbar';
 import News from './components/Content/News/News';
 import Music from './components/Content/Music/Music';
@@ -8,10 +10,10 @@ import Home from './components/Content/Home/Home';
 import UsersContainer from './components/Content/Users/UsersContainer';
 import ProfileContainer from "./components/Content/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 import './App.css';
 
-import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
 	return (
@@ -30,6 +32,7 @@ const App = () => {
 						<Route path ='/news' element={<News/>}></Route>
 						<Route path ='/music' element={<Music/>}></Route>
 						<Route path ='/settings' element={<Settings/>}></Route>
+						<Route path ='/login' element={<Login/>}></Route>
 					</Routes>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import {Component, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Navigate } from "react-router-dom";
 import {connect} from "react-redux";
 
 import Profile from "./Profile";
@@ -31,6 +31,7 @@ class ProfileContainer extends Component {
     }
 
     render() {
+        if(!this.props.isAuth) return <Navigate to={'/login'} />
         return (
             <Profile {...this.props} profile={this.props.profile}/>
         )
@@ -41,7 +42,8 @@ class ProfileContainer extends Component {
 
 let mapsStateToProps = (state)=> {
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        isAuth: state.auth.isAuth
     }
 }
 export default connect(mapsStateToProps, {getUserProfile})(ProfileContainer);
