@@ -16,16 +16,16 @@ textarea {
     border:3px dashed indigo;
     background-color:aliceblue;
 }
-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 7px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
+/*button {*/
+/*    background-color: #4CAF50;*/
+/*    border: none;*/
+/*    color: white;*/
+/*    padding: 7px 12px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    font-size: 16px;*/
+/*}*/
 .send {
     margin-top: 10px;
     margin-left: 340px;

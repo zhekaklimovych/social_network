@@ -3,9 +3,10 @@ import {action_type} from '../action_type';
 const initialState = {
     users: [ ],
     totalUsersCount: 0,
-    pageSize: 8,
+    pageSize: 6,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -41,6 +42,14 @@ const usersReducer = (state = initialState, action) => {
         }
         case action_type.TOGGLE_IS_FETCHING: {
             return { ...state, isFetching: action.isFetching}
+        }
+        case action_type.TOGGLE_IS_FOLLOWING_PROGRESS: {
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
+            }
         }
         default:
             return state;

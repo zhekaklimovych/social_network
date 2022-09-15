@@ -3,7 +3,7 @@ import React from "react";
 
 import Users from './Users';
 import Preloader from '../../common/Preloader/Preloader';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching } from '../../../redux/actions/users_actions';
+import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching, toggleFollowingProgress } from '../../../redux/actions/users_actions';
 import {usersAPI} from "../../../api/api";
 
 class UsersContainerAPI extends React.Component {
@@ -21,6 +21,7 @@ class UsersContainerAPI extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setToggleIsFetching(true);
+
         usersAPI.getUsers(pageNumber, this.props.pageSize)
             .then(data => {
                 this.props.setToggleIsFetching(false);
@@ -39,6 +40,8 @@ class UsersContainerAPI extends React.Component {
                 onPageChanged={this.onPageChanged}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
+                toggleFollowingProgress={this.props.toggleFollowingProgress}
+                followingInProgress={this.props.followingInProgress}
             />
         </>
     }
@@ -50,9 +53,10 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
 
-const UsersContainer = connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching })(UsersContainerAPI);
+const UsersContainer = connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching, toggleFollowingProgress })(UsersContainerAPI);
 export default UsersContainer;
