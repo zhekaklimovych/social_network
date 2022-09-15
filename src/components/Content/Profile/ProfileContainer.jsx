@@ -1,41 +1,34 @@
-import {Component} from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import * as axios from "axios";
+import {Component, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import {connect} from "react-redux";
 
 import Profile from "./Profile";
-import {setUserProfile} from "../../../redux/actions/profile_actions";
+import {getUserProfile} from "../../../redux/actions/profile_actions";
+import {usersAPI} from "../../../api/api";
 
-const withRouter = (Component) => {
-    function ComponentWithRouterProp(props) {
-        let location = useLocation();
-        let navigate = useNavigate();
-        let params = useParams();
-        return (
-            <Component
-                {...props}
-                router={{ location, navigate, params}}
-            />
-        );
-    }
 
-    return ComponentWithRouterProp;
-}
+// const ProfileContainerFunc = () => {
+//
+//     let {userId} = useParams();
+//     if(!userId) {
+//         userId = 2;
+//     }
+//
+//     useEffect(()=> {
+//         usersAPI.getProfile(userId);
+//     }, [userId])
+// }
 
 class ProfileContainer extends Component {
 
-    // componentDidMount() {
-    //
-    //     let userId = this.props.match.params.userId;
-    //     if (!userId) {
-    //        userId = 2;
-    //     }
-    //
-    //     axios.get(`https://social-network.samuraijs.com/api/1.0/users/` + userId)
-    //         .then(response => {
-    //             this.props.setUserProfile(response.data);
-    //         });
-    // }
+    componentDidMount() {
+
+        // let userId = this.props.match.params.userId;
+        // if (!userId) {
+           let userId = 2;
+        // }
+        usersAPI.getProfile(userId);
+    }
 
     render() {
         return (
@@ -51,4 +44,4 @@ let mapsStateToProps = (state)=> {
         profile: state.profilePage.profile
     }
 }
-export default connect(mapsStateToProps, {setUserProfile})(withRouter(ProfileContainer));
+export default connect(mapsStateToProps, {getUserProfile})(ProfileContainer);
