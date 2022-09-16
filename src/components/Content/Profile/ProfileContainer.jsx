@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import {getUserProfile} from "../../../redux/actions/profile_actions";
 import {usersAPI} from "../../../api/api";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 // const ProfileContainerFunc = () => {
 //
@@ -42,8 +43,10 @@ class ProfileContainer extends Component {
 
 let mapsStateToProps = (state)=> {
     return {
-        profile: state.profilePage.profile,
-        isAuth: state.auth.isAuth
+        profile: state.profilePage.profile
     }
 }
-export default withAuthRedirect(connect(mapsStateToProps, {getUserProfile})(ProfileContainer));
+export default compose(
+    connect(mapsStateToProps, {getUserProfile}),
+    withAuthRedirect
+)(ProfileContainer);
