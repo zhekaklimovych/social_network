@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import Profile from "./Profile";
 import {getUserProfile} from "../../../redux/actions/profile_actions";
 import {usersAPI} from "../../../api/api";
-
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 // const ProfileContainerFunc = () => {
 //
@@ -46,4 +46,4 @@ let mapsStateToProps = (state)=> {
         isAuth: state.auth.isAuth
     }
 }
-export default connect(mapsStateToProps, {getUserProfile})(ProfileContainer);
+export default withAuthRedirect(connect(mapsStateToProps, {getUserProfile})(ProfileContainer));

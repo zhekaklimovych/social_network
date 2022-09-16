@@ -1,6 +1,7 @@
 import Dialogs from './Dialogs';
 import {sendMessage, updateNewMessageText} from '../../../redux/actions/dialogs_actions';
 import {connect} from 'react-redux';
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 let mapStateToProps = (state) => {
     return {
@@ -9,6 +10,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, {sendMessage, updateNewMessageText})(Dialogs);
+const DialogsContainer = withAuthRedirect(connect(mapStateToProps, {sendMessage, updateNewMessageText})(Dialogs));
 
 export default DialogsContainer;

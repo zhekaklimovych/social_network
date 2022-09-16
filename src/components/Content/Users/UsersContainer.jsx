@@ -11,6 +11,7 @@ import {
     getUsersOnChanged,
     toggleFollowingProgress
 } from '../../../redux/actions/users_actions';
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
 
@@ -50,5 +51,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default  connect(mapStateToProps,
-    { follow, unfollow, setCurrentPage, getUsers, getUsersOnChanged, toggleFollowingProgress })(UsersContainer);
+export default  withAuthRedirect(connect(mapStateToProps,
+    { follow, unfollow, setCurrentPage, getUsers, getUsersOnChanged, toggleFollowingProgress })(UsersContainer));
