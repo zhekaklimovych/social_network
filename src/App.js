@@ -26,7 +26,8 @@ const App = () => {
 				<div className='app-content-main'>
 					<Routes>
 						<Route path = '/*' element={<Home />}></Route>
-						<Route path='/profile/*' element={<ProfileContainer />}></Route>
+						<Route path='/profile/' element={<ProfileContainer />}></Route>
+						<Route path='/profile/:userId' element={<ProfileContainer />}></Route>
 						<Route path ='/dialogs/*' element={<DialogsContainer />}></Route>
 						<Route path ='/users' element={<UsersContainer />}></Route>
 						<Route path ='/news' element={<News/>}></Route>

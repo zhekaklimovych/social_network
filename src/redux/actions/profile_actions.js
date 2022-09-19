@@ -12,8 +12,11 @@ export const setUserProfile = (profile) => ({
     profile
 })
 
-export const getUserProfile = (userId) => (dispatch) => {
-    usersAPI.getProfile(userId).then(response => {
+//thunk
+
+export const getUserProfile = userId => async dispatch => {
+    await usersAPI.getProfile(userId)
+        .then(response => {
             dispatch(setUserProfile(response.data));
         });
 }

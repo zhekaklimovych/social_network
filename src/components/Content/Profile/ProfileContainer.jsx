@@ -1,52 +1,22 @@
-import {Component, useEffect} from "react";
-import { useParams,Navigate } from "react-router-dom";
-import {connect} from "react-redux";
+import { useEffect} from "react";
+import { useParams } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserProfile} from "../../../redux/actions/profile_actions";
 
 import Profile from "./Profile";
-import {getUserProfile} from "../../../redux/actions/profile_actions";
-import {usersAPI} from "../../../api/api";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
-import {compose} from "redux";
 
-// const ProfileContainerFunc = () => {
-//
-//     let {userId} = useParams();
-//     if(!userId) {
-//         userId = 2;
-//     }
-//
-//     useEffect(()=> {
-//         usersAPI.getProfile(userId);
-//     }, [userId])
-// }
+const ProfileContainer = () => {
 
-class ProfileContainer extends Component {
+    let {userId} = useParams();
+    const profile = useSelector(state => state.profilePage.profile);
+    const dispatch = useDispatch();
 
-    componentDidMount() {
+    useEffect(()=> {
+        dispatch(getUserProfile(userId));
+    }, [userId]);
 
-        // let userId = this.props.match.params.userId;
-        // if (!userId) {
-           let userId = 2;
-        // }
-        usersAPI.getProfile(userId);
-    }
-
-    render() {
-        if(!this.props.isAuth) return <Navigate to={'/login'} />
-        return (
-            <Profile {...this.props} profile={this.props.profile}/>
-        )
-    }
-
-
+    return <Profile profile={profile}/>
 }
 
-let mapsStateToProps = (state)=> {
-    return {
-        profile: state.profilePage.profile
-    }
-}
-export default compose(
-    connect(mapsStateToProps, {getUserProfile}),
-    withAuthRedirect
-)(ProfileContainer);
+export default ProfileContainer;
+
