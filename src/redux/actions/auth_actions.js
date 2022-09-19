@@ -1,10 +1,10 @@
 import {action_type} from "../action_type";
 import {authAPI} from "../../api/api";
 
-//action creator
+//action creators
 export const setAuthUserData = (userId, email, login) => ({type: action_type.SET_AUTH_USER_DATA, data: {userId, email, login}});
 
-//thunk
+//thunks
 export const getAuthUserData = () => (dispatch) => {
     return authAPI.me()
         .then(response => {

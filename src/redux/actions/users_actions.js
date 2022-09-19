@@ -1,7 +1,7 @@
 import {action_type} from "../action_type";
 import {usersAPI} from "../../api/api";
 
-//actions creator
+//action creators
 export const followSuccess = (userId) => ({type: action_type.FOLLOW, userId})
 export const unfollowSuccess = (userId) => ({type: action_type.UNFOLLOW, userId})
 export const setUsers = (users) => ({type: action_type.SET_USERS, users})
@@ -10,7 +10,7 @@ export const setTotalUsersCount = (totalUsersCount) => ({type: action_type.SET_T
 export const setToggleIsFetching = (isFetching) => ({type: action_type.TOGGLE_IS_FETCHING, isFetching })
 export const toggleFollowingProgress = (isFetching, userId) => ({type: action_type.TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
-//thunk
+//thunks
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setToggleIsFetching(true));

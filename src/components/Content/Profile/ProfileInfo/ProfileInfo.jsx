@@ -2,6 +2,7 @@ import s from './ProfileInfo.module.css';
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
+    // console.log('profileINFO', props)
     if(!props.profile) {
         return (
             <div className={s.profileInfo}>
@@ -24,7 +25,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={s.profileInfo}>
             <div className={s.profileInfoLogo}>
-                <ProfileStatus status={'Hi my friends'}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
 
                 <img src={props.profile.photos.large || "https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/user/11.png"} alt="avatar"/>
             </div>

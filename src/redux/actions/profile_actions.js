@@ -1,22 +1,29 @@
 import {action_type} from "../action_type";
-import {usersAPI} from "../../api/api";
+import {profileAPI} from "../../api/api";
 
-export const addPost = () => ({type: action_type.ADD_POST})
-export const updateNewPostText = text => ({
-    type: action_type.UPDATE_NEW_POST_TEXT,
-    newMessage: text
-})
+//action creators
+export const addPost = () => ({type: action_type.ADD_POST});
+export const updateNewPostText = text => ({ type: action_type.UPDATE_NEW_POST_TEXT, newMessage: text });
+export const setUserProfile = profile => ({ type: action_type.SET_USER_PROFILE, profile });
+export const setStatus = status => ({ type: action_type.SET_STATUS, status });
 
-export const setUserProfile = (profile) => ({
-    type: action_type.SET_USER_PROFILE,
-    profile
-})
-
-//thunk
-
+//thunks
 export const getUserProfile = userId => async dispatch => {
-    await usersAPI.getProfile(userId)
-        .then(response => {
-            dispatch(setUserProfile(response.data));
-        });
+    await profileAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data))
+    });
+}
+
+export const getStatus = userId => async dispatch => {
+    await profileAPI.getStatus(userId).then(response => {
+        dispatch(setStatus(response.data))
+    });
+}
+
+export const updateStatus = status => async dispatch => {
+    await profileAPI.updateStatus(status).then(response => {
+        if(response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    })
 }

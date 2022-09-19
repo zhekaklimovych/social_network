@@ -7,9 +7,9 @@ const initialState = {
         }
     ],
     newPostMessage: '',
-    profile: null
+    profile: null,
+    status: ''
 }
-
 
 const profileReducer = (state = initialState, action) => {
 
@@ -32,6 +32,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: action.profile
+            }
+        case action_type.SET_STATUS:
+            return {
+                ...state,
+                status: action.status
             }
         default:
             return state;
