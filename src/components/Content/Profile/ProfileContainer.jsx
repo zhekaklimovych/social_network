@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {getStatus, getUserProfile} from "../../../redux/actions/profile_actions";
 
 import Profile from "./Profile";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 const ProfileContainer = () => {
 
@@ -22,5 +24,5 @@ const ProfileContainer = () => {
     return <Profile profile={profile} status={status} />
 }
 
-export default ProfileContainer;
+export default compose(withAuthRedirect)(ProfileContainer);
 

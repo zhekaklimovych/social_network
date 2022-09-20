@@ -36,5 +36,4 @@ class ProfileStatus extends Component {
     }
 }
 
-const ProfileStatusConnect = connect(null, {updateStatus})(ProfileStatus);
-export default ProfileStatusConnect;
+export default connect(null, {updateStatus})(ProfileStatus);
