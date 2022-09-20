@@ -1,4 +1,6 @@
 import {Component} from "react";
+import {updateStatus} from "../../../../redux/actions/profile_actions";
+import {connect} from "react-redux";
 
 class ProfileStatus extends Component {
 
@@ -10,7 +12,7 @@ class ProfileStatus extends Component {
     activateEditMode = () => this.setState({editMode: true})
     deactivateEditMode = ()=> {
         this.setState({editMode: false});
-        // this.props.updateStatus(this.state.status);
+        this.props.updateStatus(this.state.status);
     }
 
     onStatusChange = (e) => {
@@ -34,4 +36,5 @@ class ProfileStatus extends Component {
     }
 }
 
-export default ProfileStatus;
+const ProfileStatusConnect = connect(null, {updateStatus})(ProfileStatus);
+export default ProfileStatusConnect;

@@ -19,7 +19,7 @@ const ProfileContainer = () => {
         dispatch(getStatus(userId));
     }, [userId]);
 
-    return <Profile profile={profile} status={status}/>
+    return <Profile profile={profile} status={status} />
 }
 
 export default ProfileContainer;

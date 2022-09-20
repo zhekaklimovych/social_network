@@ -2,7 +2,6 @@ import s from './ProfileInfo.module.css';
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
-    // console.log('profileINFO', props)
     if(!props.profile) {
         return (
             <div className={s.profileInfo}>
