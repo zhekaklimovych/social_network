@@ -5,11 +5,9 @@ export const action_type = {
 
     //dialogs
     SEND_MESSAGE: 'SEND_MESSAGE',
-    UPDATE_NEW_MESSAGE_TEXT: 'UPDATE_NEW_MESSAGE_TEXT',
 
     //profile
     ADD_POST: 'ADD_POST',
-    UPDATE_NEW_POST_TEXT: 'UPDATE_NEW_POST_TEXT',
     SET_USER_PROFILE: 'SET_USER_PROFILE',
     SET_STATUS: 'SET_STATUS',
     

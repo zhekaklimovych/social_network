@@ -6,7 +6,6 @@ const initialState = {
         message: 'Hello, my first post!'
         }
     ],
-    newPostMessage: '',
     profile: null,
     status: ''
 }
@@ -15,18 +14,13 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case action_type.ADD_POST:
-            let newPost = state.newPostMessage;
+            let newPost = action.newPostText;
             return {
                 ...state,
-                newPostMessage: '',
+                newPostText: '',
                 posts: [...state.posts, {
                     message: newPost
                 }],
-            }
-        case action_type.UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostMessage: action.newMessage
             }
         case action_type.SET_USER_PROFILE:
             return {
