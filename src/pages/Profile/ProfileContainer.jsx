@@ -1,11 +1,11 @@
 import { useEffect} from "react";
 import { useParams } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getStatus, getUserProfile} from "../../../redux/actions/profile_actions";
+import {getStatus, getUserProfile} from "../../redux/actions/profile_actions";
 
 import Profile from "./Profile";
 import {compose} from "redux";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 const ProfileContainer = () => {
 

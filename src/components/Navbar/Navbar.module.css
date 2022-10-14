@@ -9,10 +9,6 @@
     padding-left: 40px;
 }
 
-.item:last-child {
-    padding-top: 30px;
-}
-
 .nav a {
     text-decoration: none;
     font-size: 26px;

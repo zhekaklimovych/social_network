@@ -1,5 +1,4 @@
 import store from './redux/redux-store';
-import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
@@ -16,4 +15,3 @@ ReactDOM.render(
     </BrowserRouter>,
     document.getElementById('root'));
 
-reportWebVitals();

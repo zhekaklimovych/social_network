@@ -1,4 +1,4 @@
-import preloader from '../../assets/img/preloader.gif'
+import preloader from '../../../assets/img/preloader.gif'
 
 const Preloader = ()=> {
     return <div style={{backgroundColor: "white"}}>

@@ -3,7 +3,7 @@ import React from "react";
 import {compose} from "redux";
 
 import Users from './Users';
-import Preloader from '../../common/Preloader/Preloader';
+import Preloader from '../../components/common/Preloader/Preloader';
 import {
     follow,
     unfollow,
@@ -11,8 +11,8 @@ import {
     getUsers,
     getUsersOnChanged,
     toggleFollowingProgress
-} from '../../../redux/actions/users_actions';
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+} from '../../redux/actions/users_actions';
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
 

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {addPostAC} from '../../../../redux/actions/profile_actions';
+import {addPostAC} from '../../../redux/actions/profile_actions';
 import MyPosts from './MyPosts';
 
 let mapStateToProps = (state) => {

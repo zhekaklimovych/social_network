@@ -24,21 +24,6 @@ const Navbar = () => {
                     Users
                 </NavLink>
             </div>
-            <div className={s.item}>
-                <NavLink to='/news' className={navData => navData.isActive ? s.active : s.a}>
-                    News
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/music' className={navData => navData.isActive ? s.active : s.a}>
-                    Music
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/settings' className={navData => navData.isActive ? s.active : s.a}>
-                    Settings
-                </NavLink>
-            </div>
         </nav>
     )
 }

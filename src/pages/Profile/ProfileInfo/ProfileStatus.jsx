@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {updateStatus} from "../../../../redux/actions/profile_actions";
+import {updateStatus} from "../../../redux/actions/profile_actions";
 import {connect} from "react-redux";
 
 class ProfileStatus extends Component {
